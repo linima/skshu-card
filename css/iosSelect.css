@@ -146,20 +146,22 @@ ul, li {
 .ios-select-widget-box .cover-area1 {
 	width: 100%;
 	border: none;
-	border-top: 1px solid #d9d9d9;
 	position: absolute;
 	top: 149px;
 	margin: 0;
-	height: 0;
+	height: 1px;
+	background: #d9d9d9;
+	overflow: hidden;
 }
 .ios-select-widget-box .cover-area2 {
 	width: 100%;
 	border: none;
-	border-top: 1px solid #d9d9d9;
 	position: absolute;
 	top: 183px;
 	margin: 0;
-	height: 0;
+	height: 1px;
+	background: #d9d9d9;
+	overflow: hidden;
 }
 .ios-select-widget-box #iosSelectTitle {
 	margin: 0;
