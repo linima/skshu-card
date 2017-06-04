@@ -116,7 +116,8 @@
             address.addEventListener('click', function(){
                 var iosSelect = new IosSelect(3, [iosProvinces, iosCitys, iosCountys], {
                     title: '家乡选择',
-                    itemHeight: 45,
+                    itemHeight: 56,
+                    headerHeight: 56,
                     relation: [1,1,0,0],
                     callback: function(selectOneObj, selectTwoObj, selectThreeObj){
                         address.innerHTML = selectOneObj.value + ' ' + selectTwoObj.value + ' ' + selectThreeObj.value;
