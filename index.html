@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>美丽乡村</title>
+    <link rel="stylesheet" href="css/iosSelect.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function fixViewport(type, width) {
+            var docEl = document.documentElement;
+            var metaEl = document.querySelector('meta[name="viewport"]');
+            var clientWidth = Math.min(docEl.clientWidth, docEl.clientHeight);
+            var scale, content;
+            
+            switch (type) {
+                case 'fixed':
+                    scale = clientWidth / width;
+                    content = 'width=' + width + ',initial-scale=' + scale + ',maximum-scale=' + scale +
+                        ',minimum-scale=' + scale;
+                    break;
+                case 'rem':
+                    var dpr = window.devicePixelRatio || 1;
+                    docEl.setAttribute('data-dpr', dpr);
+                    docEl.style.fontSize = 100 * (clientWidth * dpr / width) + "px";
+
+                    scale = 1 / dpr;
+                    content = 'width=' + clientWidth * dpr + ',initial-scale=' + scale + ',maximum-scale=' + scale +
+                        ', minimum-scale=' + scale;
+                    break;
+            }
+            metaEl.setAttribute('content', content);
+        }
+        fixViewport('fixed', 750);
+    </script>
+</head>
+<body>
+	<div class="page">
+        <div class="generate" id="generate" style="display: none;">
+    		<div class="postcode"></div>
+    		<div class="stamp"></div>
+            <div class="seal"></div>
+    		<div class="content">
+    			<div class="text">
+    				<div class="tit">TO我亲爱的老家：<span>福建莆田仙游县</span></div>
+    				<p>你养育了我长大成人，可你却变得苍老不堪。<br>如今我已羽翼渐丰，是时候来回馈你了！</p>
+    				<p>我希望<span>院子里的小破屋</span></p>
+                    <p class="plaint">能改成<span>露天小花园</span></p>
+    				<p>让你变的更美丽！请三棵树为我助力！</p>
+    				<div class="tit">From：<span>假行僧</span></div>
+    			</div>
+    			<a class="btn btn-others" id="btnOthers">给小伙伴看看</a>
+    			<a class="btn btn-my" id="btnMy">我也要为老家出力</a>
+    		</div>
+        </div>
+        <div class="entering" id="entering">
+            <div class="postcode"></div>
+            <div class="stamp"></div>
+            <div class="content">
+                <div class="text">
+                    <div class="tit">TO我亲爱的老家：<a class="address" id="address">请选择您的家乡</a></div>
+                    <p>你养育了我长大成人，可你却变得苍老不堪。<br>如今我已羽翼渐丰，是时候来回馈你了！</p>
+                    <p>我希望<input type="text" placeholder="院子里的小破屋"></p>
+                    <p class="plaint">能改成<input type="text" placeholder="露天小花园"></p>
+                    <p>让你变的更美丽！请三棵树为我助力！</p>
+                    <div class="tit">
+                        From：
+                        <div>
+                            <input type="text" placeholder="您的称呼">
+                            <input type="mail" placeholder="请留下您的电子邮箱">
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-send" id="btnSend">寄给老家</a>
+            </div>
+        </div>
+	</div>
+	<div class="sharepop" id="sharepop"></div>
+
+    <script src="js/iscroll.js"></script>
+    <script src="js/areaData_v2.js"></script>
+    <script src="js/iosSelect.js"></script>
+    <script>
+    	window.onload = function(){
+    		var sharepop = document.getElementById('sharepop'),
+    			btnOthers = document.getElementById('btnOthers'),
+    			btnMy = document.getElementById('btnMy'),
+                btnSend = document.getElementById('btnSend'),
+                generate = document.getElementById('generate'),
+                entering = document.getElementById('entering');
+
+    		//初始化自己打开or好友打开
+    		btnMy.style.display = 'none';
+
+
+    		btnOthers.addEventListener('click', function(){
+    			sharepop.classList.add('active');
+    		});
+    		sharepop.addEventListener('click', function(){
+    			sharepop.classList.remove('active');
+    		});
+            btnSend.addEventListener('click', function(){
+                generate.style.display = 'block';
+                entering.style.display = 'none';
+            });
+
+
+            //家乡选择
+            var address = document.getElementById('address');
+            address.addEventListener('click', function(){
+                var iosSelect = new IosSelect(3, [iosProvinces, iosCitys, iosCountys], {
+                    title: '家乡选择',
+                    itemHeight: 45,
+                    relation: [1,1,0,0],
+                    callback: function(selectOneObj, selectTwoObj, selectThreeObj){
+                        address.innerHTML = selectOneObj.value + ' ' + selectTwoObj.value + ' ' + selectThreeObj.value;
+                        address.classList.add('active');
+                    }
+                })
+            })
+    	}
+    </script>
+</body>
+</html>

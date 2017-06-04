@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: #000;
+    background: #fff;
+    font-size: 26px;
+}
+img{    
+    border: none;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.page{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../img/bg.png) center bottom no-repeat;
+    background-size: contain;
+}
+.sharepop{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, .9) url(../img/share-tip.png) top center no-repeat;
+}
+.sharepop.active{
+    display: block;
+}
+.postcode{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 290px;
+    height: 40px;
+    background: url(../img/postcode.png) no-repeat;
+}
+.stamp{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 220px;
+    height: 220px;
+    background: url(../img/stamp.png) no-repeat;
+}
+.seal{
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    width: 424px;
+    height: 180px;
+    background: url(../img/seal.png) no-repeat;
+}
+.content{
+    position: absolute;
+    top: 300px;
+    left: 45px;
+    right: 45px;
+    bottom: 150px;
+}
+.content .text .tit{
+    font-size: 28px;
+}
+.content .text .tit:first-child{
+    margin-bottom: 30px;
+}
+.content .text .tit:last-child{
+    margin-top: 30px;
+}
+.content .text .tit span{
+    color: #13923d;
+}
+.content .text p{
+    display: flex;
+    display: -webkit-flex;
+    line-height: 46px;
+    margin-bottom: 15px;
+}
+.content .text p span{
+    flex: 1;
+    color: #13923d;
+    border-bottom: 1px solid #000;
+}
+.content .text select{
+    font-size: 28px;
+    border: none;
+    background: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000;
+    outline: none;
+    color: #999;
+}
+.content .text input{
+    flex: 1;
+    -webkit-flex: 1;
+    display: block;
+    padding: 5px 10px;
+    font-size: 26px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    border-radius: 0;
+} 
+.content .text .tit input{
+    font-size: 28px;
+}
+.content .btn{
+    margin: 50px auto 0;
+    display: block;
+    width: 380px;
+    height: 80px;
+    text-indent: -9999px;
+    background: url(../img/btns.png) no-repeat;
+}
+.content .btn.btn-others{
+    background-position: 0 0;
+}
+.content .btn.btn-my{
+    background-position: 0 -80px;
+}
+.content .btn.btn-send{
+    background-position: 0 -160px;
+}
+
+.entering .content .text .tit{
+    display: flex;
+    display: -webkit-flex;
+}
+.entering .content .text .tit select{
+    flex: 1;
+    -webkit-flex: 1;
+}
+.entering .content .text .tit div{
+    flex: 1;
+    -webkit-flex: 1;
+}
+.entering .content .text .tit div input{
+    width: 100%;
+}
+.entering .content .text .tit div input:first-child{
+    margin-bottom: 15px;
+}
+.plaint{
+    position: relative;
+}
+.plaint:after{
+    content: '!';
+    position: absolute;
+    right: -8px;
+    top: 0;
+}
+.address{
+    display: block;
+    padding-bottom: 5px;
+    flex: 1;
+    -webkit-flex: 1;
+    color: #999;
+    border-bottom: 1px solid #000;
+}
+.address.active{
+    color: #000;
+}
